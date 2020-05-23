@@ -8,8 +8,6 @@ import DateComponent from "../components/DateComponent.js";
 
 import issuedFilledCylinderData from "../data/issued-filled-cylinder";
 
-import { ActionButton } from "react-native-material-ui";
-
 const HomeScreen = (props) => (
   <View style={styles.container}>
     <Toolbar
@@ -34,7 +32,6 @@ const HomeScreen = (props) => (
         navigation={props.navigation}
       />
     </ScrollView>
-    <ActionButton />
   </View>
 );
 
