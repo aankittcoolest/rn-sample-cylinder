@@ -42,10 +42,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginVertical: 10,
-    marginHorizontal: 5,
   },
   headingText: {
     fontSize: 20,
+  },
+  headingLabel: {
+    marginRight: 5,
   },
   row: {
     display: "flex",
@@ -71,7 +73,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "stretch",
-    paddingHorizontal: 10,
     paddingVertical: 20,
   },
   button: {
