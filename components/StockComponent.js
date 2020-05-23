@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Button,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
 import FormattedTable from "./FormattedTable";
+import { Button } from "react-native-material-ui";
 
 import stockData from "../data/stock-data";
 
@@ -22,14 +16,14 @@ const getImage = (imageId) => {
 
 const generateButtonForReceive = (imageId, receivedCount) => {
   if (imageId === 0) {
-    return <Button title={receivedCount} />;
+    return <Button raised primary text={receivedCount} />;
   }
   return receivedCount;
 };
 
 const generateButtonForIssue = (imageId, issuedCount) => {
   if (imageId === 1) {
-    return <Button title={issuedCount} />;
+    return <Button raised primary text={issuedCount} />;
   }
   return issuedCount;
 };

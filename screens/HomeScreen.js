@@ -1,16 +1,29 @@
 import React from "react";
-import { View, ScrollView, StyleSheet, Button } from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
+import { Toolbar } from "react-native-material-ui";
 
 import StockComponent from "../components/StockComponent.js";
 import IssueReceiveComponent from "../components/IssueReceiveComponent.js";
 import DateComponent from "../components/DateComponent.js";
 
 import issuedFilledCylinderData from "../data/issued-filled-cylinder";
-import receivedEmptyCylinderData from "../data/received-empty-cylinder";
+
+import { ActionButton } from "react-native-material-ui";
 
 const HomeScreen = (props) => (
   <View style={styles.container}>
-    <Button title="test" onPress={() => props.navigation.push("Details")} />
+    <Toolbar
+      leftElement="menu"
+      rightElement={{
+        menu: {
+          icon: "more-vert",
+          labels: ["item 1", "item 2"],
+        },
+      }}
+      onRightElementPress={(label) => {
+        console.log(label);
+      }}
+    />
     <DateComponent />
     <ScrollView>
       <StockComponent />
@@ -18,13 +31,10 @@ const HomeScreen = (props) => (
         data={issuedFilledCylinderData}
         title="Issue Matrix"
         type="issue"
-      />
-      <IssueReceiveComponent
-        data={receivedEmptyCylinderData}
-        title="Received Matrix"
-        type="receive"
+        navigation={props.navigation}
       />
     </ScrollView>
+    <ActionButton />
   </View>
 );
 

@@ -4,10 +4,10 @@ const issuedFilledCylinderReference = {
     loadmanDeliveries: [
       {
         name: "LOAD-1",
-        size1Count: "540",
-        size2Count: "0",
-        size3Count: "0",
-        size4Count: "0",
+        size1Count: "540/200",
+        size2Count: "0/0",
+        size3Count: "0/0",
+        size4Count: "0/0",
       },
       {
         name: "LOAD-2",

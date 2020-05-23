@@ -44,12 +44,18 @@ const IssueReceiveComponent = (props) => {
     if (data[i][0] === "TOTAL") {
       continue;
     }
-    for (let j = 1; j < data[i].length; j++) {
-      if (data[i][j] === "0") {
-        continue;
-      }
-      data[i][j] = <Button title={data[i][j]} />;
+    if (data[i][0] === "") {
+      continue;
     }
+    let name = data[i][0];
+    data[i][0] = (
+      <Text
+        onPress={() => props.navigation.push("Details", { name })}
+        style={styles.item}
+      >
+        {data[i][0]}
+      </Text>
+    );
   }
 
   return (
@@ -82,8 +88,9 @@ const styles = StyleSheet.create({
     color: "#706b6b",
   },
   item: {
-    flex: 1,
-    flexDirection: "row",
+    fontSize: 17,
+    color: "#219699",
+    paddingLeft: 5,
     paddingTop: 5,
   },
   weight: {
