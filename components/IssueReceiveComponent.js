@@ -11,8 +11,8 @@ import FormattedTable from "./FormattedTable";
 
 const IssueReceiveComponent = (props) => {
   let type = props.type;
-  props.data.headers[0] = (
-    <View style={styles.header}>
+  if (type == "issue") {
+    props.data.headers[0] = (
       <Image
         source={require("../assets/images/filled.png")}
         style={{
@@ -20,7 +20,9 @@ const IssueReceiveComponent = (props) => {
           height: 30,
         }}
       />
-      <Text style={styles.headerText}>/</Text>
+    );
+  } else {
+    props.data.headers[0] = (
       <Image
         source={require("../assets/images/empty.png")}
         style={{
@@ -28,8 +30,8 @@ const IssueReceiveComponent = (props) => {
           height: 30,
         }}
       />
-    </View>
-  );
+    );
+  }
 
   let data = props.data.data;
   for (let i = 0; i < data.length; i++) {
@@ -38,32 +40,18 @@ const IssueReceiveComponent = (props) => {
     }
     if (data[i][0] === "HAWKER") {
       continue;
-    } else {
-      for (let j = 1; j < data[i].length; j++) {
-        let breakdown = data[i][j].split("/");
-        if (breakdown[0] === "0") {
-          continue;
-        } else if (breakdown[0] === "0") {
-          data[i][j] = (
-            <View>
-              <Button title={breakdown[0]} />
-              <Text>/0</Text>
-            </View>
-          );
-        } else {
-          data[i][j] = (
-            <View style={styles.header}>
-              <Text style={{ color: "red" }}>{breakdown[0]}</Text>
-              <Text> / </Text>
-              <Text style={{ color: "blue" }}>{breakdown[1]}</Text>
-            </View>
-          );
-        }
-        // data[i][j] = <Button title={data[i][j]} />;
-        console.log(data[i][j]);
+    }
+    if (data[i][0] === "TOTAL") {
+      continue;
+    }
+    for (let j = 1; j < data[i].length; j++) {
+      if (data[i][j] === "0") {
+        continue;
       }
+      data[i][j] = <Button title={data[i][j]} />;
     }
   }
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>

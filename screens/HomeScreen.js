@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet, Button } from "react-native";
 
 import StockComponent from "../components/StockComponent.js";
 import IssueReceiveComponent from "../components/IssueReceiveComponent.js";
@@ -10,9 +10,15 @@ import receivedEmptyCylinderData from "../data/received-empty-cylinder";
 
 const HomeScreen = (props) => (
   <View style={styles.container}>
+    <Button title="test" onPress={() => props.navigation.push("Details")} />
     <DateComponent />
     <ScrollView>
       <StockComponent />
+      <IssueReceiveComponent
+        data={issuedFilledCylinderData}
+        title="Issue Matrix"
+        type="issue"
+      />
       <IssueReceiveComponent
         data={receivedEmptyCylinderData}
         title="Received Matrix"
