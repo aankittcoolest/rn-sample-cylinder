@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-sample-cylinder",
-    "slug": "rn-sample-cylinder",
+    "name": "cylinder management",
+    "slug": "cylinder-management",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
