@@ -7,14 +7,14 @@ import {
   View,
   Button,
 } from "react-native";
-import FormattedTable from "./FormattedTable";
+import FormattedTable from "../blocks/FormattedTable";
 
 const IssueReceiveComponent = (props) => {
   let type = props.type;
   if (type == "issue") {
     props.data.headers[0] = (
       <Image
-        source={require("../assets/images/filled.png")}
+        source={require("../../assets/images/filled.png")}
         style={{
           width: 30,
           height: 30,
@@ -24,7 +24,7 @@ const IssueReceiveComponent = (props) => {
   } else {
     props.data.headers[0] = (
       <Image
-        source={require("../assets/images/empty.png")}
+        source={require("../../assets/images/empty.png")}
         style={{
           width: 30,
           height: 30,

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import CardComponent from "../../components/CardComponent";
+import CardComponent from "../../components/blocks/CardComponent";
 import { ActionButton } from "react-native-material-ui";
 
 import Constants from "../../constants/Constants";

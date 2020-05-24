@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView, Text, StyleSheet } from "react-native";
 
 import filledLoadmanData from "../data/filled-loadman";
-import FormattedTable from "../components/FormattedTable";
+import FormattedTable from "../components/blocks/FormattedTable";
 
 const EmptyScreen = (props) => {
   return (

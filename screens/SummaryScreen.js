@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import summaryData from "../data/summary-data";
-import FormattedTable from "../components/FormattedTable";
+import FormattedTable from "../components/blocks/FormattedTable";
 
 const SummaryScreen = (props) => {
   let data = summaryData.data;

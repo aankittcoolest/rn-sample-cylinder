@@ -2,9 +2,9 @@ import React from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Toolbar } from "react-native-material-ui";
 
-import StockComponent from "../components/StockComponent.js";
-import IssueReceiveComponent from "../components/IssueReceiveComponent.js";
-import DateComponent from "../components/DateComponent.js";
+import StockComponent from "../components/logical/StockComponent.js";
+import IssueReceiveComponent from "../components/logical/IssueReceiveComponent.js";
+import DateComponent from "../components/blocks/DateComponent.js";
 
 import issuedFilledCylinderData from "../data/issued-filled-cylinder";
 

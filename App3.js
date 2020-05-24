@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 
-import CreateSite from "./screens/site/CreateSite";
+import SummaryScreen from "./screens/SummaryScreen";
 
 export default function App() {
-  return <CreateSite />;
+  return <SummaryScreen />;
 }

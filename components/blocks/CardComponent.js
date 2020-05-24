@@ -4,8 +4,6 @@ import { Card, Button } from "react-native-material-ui";
 
 import { LabelStyle } from "./LabelStyleComponent";
 
-import Constants from "../constants/Constants";
-
 const CardComponent = (props) => {
   let items = [];
 

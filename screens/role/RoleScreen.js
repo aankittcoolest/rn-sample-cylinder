@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Button } from "react-native-material-ui";
 
-import AdminRoleScreen from "./AdminRoleScreen";
-
 const RoleScreen = (props) => {
   const [role, setRole] = useState("home");
 

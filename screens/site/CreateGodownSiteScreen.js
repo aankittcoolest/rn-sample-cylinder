@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Keyboard } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-import TextInputComponent from "../../components/TextInputComponent";
+import TextInputComponent from "../../components/blocks/TextInputComponent";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import SaveCancelComponent from "../../components/blocks/SaveCancelComponent";
 
