@@ -15,11 +15,13 @@ const HomeScreen = (props) => (
       rightElement={{
         menu: {
           icon: "more-vert",
-          labels: ["item 1", "item 2"],
+          labels: ["Maintain", "Logout"],
         },
       }}
       onRightElementPress={(label) => {
-        console.log(label);
+        if (label.index === 0) {
+          props.navigation.push("Maintain");
+        }
       }}
     />
     <DateComponent />

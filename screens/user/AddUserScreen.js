@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const Test1Component = (props) => {
+const UsersScreen = (props) => {
   return (
     <View>
-      <Text>Inside test1 </Text>
+      <Text>Users screen</Text>
     </View>
   );
 };
 
-export default Test1Component;
+export default UsersScreen;
