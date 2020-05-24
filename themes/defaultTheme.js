@@ -9,6 +9,11 @@ const defaultTheme = {
       height: 50,
     },
   },
+  actionButton: {
+    container: {
+      backgroundColor: Constants.primaryColor,
+    },
+  },
 };
 
 export default defaultTheme;

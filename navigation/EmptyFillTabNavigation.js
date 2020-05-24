@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import FillScreen from "../screens/FillScreen";
@@ -7,7 +6,7 @@ import EmptyScreen from "../screens/EmptyScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
-const TabNavigation = (props) => {
+const EmptyFillTabNavigation = (props) => {
   console.log(props.route.params);
   return (
     <Tab.Navigator
@@ -20,18 +19,14 @@ const TabNavigation = (props) => {
         tabStyle: {},
       }}
     >
-      <Tab.Screen name="Test1" options={{ title: "Fill" }}>
+      <Tab.Screen name="fill" options={{ title: "Fill" }}>
         {() => <FillScreen name={props.route.params.name} />}
       </Tab.Screen>
-      <Tab.Screen name="Test2" options={{ title: "Empty" }}>
+      <Tab.Screen name="empty" options={{ title: "Empty" }}>
         {() => <EmptyScreen name={props.route.params.name} />}
       </Tab.Screen>
     </Tab.Navigator>
   );
 };
 
-// const MainTabNavigation = (props) => {
-//   return <TabNavigation tabProps={props.route.params} />;
-// };
-
-export default TabNavigation;
+export default EmptyFillTabNavigation;
