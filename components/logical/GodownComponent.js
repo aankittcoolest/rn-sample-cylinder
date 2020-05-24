@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import StockComponent from "../";
+import { StyleSheet, ScrollView } from "react-native";
+import StockComponent from "./StockComponent";
 import IssueReceiveComponent from "./IssueReceiveComponent";
 import issuedFilledCylinderData from "../../data/issued-filled-cylinder";
 

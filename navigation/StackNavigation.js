@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import RoleScreen from "../screens/role/RoleScreen";
 import AdminRoleScreen from "../screens/role/AdminRoleScreen";
+import AdminGodownScreen from "../screens/admin/AdminGodownScreen";
 import GodownRoleScreen from "../screens/role/GodownRoleScreen";
 import LoadmanRoleScreen from "../screens/role/LoadmanRoleScreen";
 import EmptyFillTabNavigation from "./EmptyFillTabNavigation";
@@ -17,6 +18,7 @@ const StackNavigation = (props) => {
     <Stack.Navigator>
       <Stack.Screen name="Login" component={RoleScreen} />
       <Stack.Screen name="Admin Dashboard" component={AdminRoleScreen} />
+      <Stack.Screen name="Admin Godown View" component={AdminGodownScreen} />
       <Stack.Screen name="Godown Dashboard" component={GodownRoleScreen} />
       <Stack.Screen name="Loadman Dashboard" component={LoadmanRoleScreen} />
       <Stack.Screen name="Dashboard" component={HomeScreen} />

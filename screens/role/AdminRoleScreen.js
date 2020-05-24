@@ -4,12 +4,17 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import DateComponent from "../../components/blocks/DateComponent.js";
 import AdminToolbar from "../../components/logical/toolbars/AdminToolbar";
 
-const AdminRoleScreen = (props) => (
-  <View style={styles.container}>
-    <AdminToolbar />
-    <DateComponent />
-  </View>
-);
+import SummaryComponent from "../../components/logical/SummaryComponent";
+
+const AdminRoleScreen = (props) => {
+  return (
+    <View style={styles.container}>
+      <AdminToolbar />
+      <DateComponent />
+      <SummaryComponent navigation={props.navigation} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

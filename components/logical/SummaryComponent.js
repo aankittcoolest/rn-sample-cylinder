@@ -1,17 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-import summaryData from "../data/summary-data";
-import FormattedTable from "../components/blocks/FormattedTable";
+import summaryData from "../../data/summary-data";
+import FormattedTable from "../blocks/FormattedTable";
 
-const SummaryScreen = (props) => {
+const SummaryComponent = (props) => {
   let data = summaryData.data;
 
   data.forEach((x) => {
     let name = x[0];
     x[0] = (
       <Text
-        onPress={() => props.navigation.push("Details", { name })}
+        onPress={() => props.navigation.push("Admin Godown View", { name })}
         style={styles.item}
       >
         {x[0]}
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SummaryScreen;
+export default SummaryComponent;
