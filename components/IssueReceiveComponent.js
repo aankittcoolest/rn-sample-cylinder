@@ -70,15 +70,6 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
   },
-  header: {
-    paddingTop: 10,
-    flex: 1,
-    flexDirection: "row",
-    paddingLeft: 3,
-  },
-  headerText: {
-    fontSize: 20,
-  },
   title: {
     fontSize: 25,
     paddingLeft: 15,
@@ -91,9 +82,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#219699",
     paddingLeft: 5,
-    paddingTop: 5,
-  },
-  weight: {
     paddingTop: 5,
   },
 });
