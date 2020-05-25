@@ -1,10 +1,23 @@
 import React from "react";
-import { ScrollView, Text, StyleSheet } from "react-native";
+import { ScrollView, Text, StyleSheet, Button } from "react-native";
 
 import filledLoadmanData from "../data/filled-loadman";
 import FormattedTable from "../components/blocks/FormattedTable";
 
 const FillScreen = (props) => {
+  const handleChallanClick = (challanNumber) => {
+    //TODO forward challan number also
+    props.navigation.push("Issue Challan");
+  };
+  filledLoadmanData.data.forEach((x) => {
+    if (x[0] === "" || x[0] === "TOTAL") {
+      return;
+    }
+    let challanNumber = x[0];
+    x[0] = (
+      <Button onPress={() => handleChallanClick(challanNumber)} title={x[0]} />
+    );
+  });
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>{props.name}</Text>

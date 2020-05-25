@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { View, Text } from "react-native";
 import StackNavigation from "./navigation/StackNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeContext, getTheme } from "react-native-material-ui";

@@ -6,7 +6,7 @@ import Constants from "../../constants/Constants";
 const BLUE = "#428AF8";
 const LIGHT_GRAY = "#D3D3D3";
 
-const TextInputComponent = (props) => {
+const NumberInputComponent = (props) => {
   const [isFocussed, setIsFocussed] = useState(false);
 
   const handleFocus = (event) => {
@@ -21,7 +21,7 @@ const TextInputComponent = (props) => {
     <View style={styles.container}>
       <Text style={styles.textLabel}>{props.label}</Text>
       <TextInput
-        keyboardType={props.keyboardType}
+        keyboardType=""
         placeholder={props.placeholder}
         selectionColor={BLUE}
         underlineColorAndroid={isFocussed ? BLUE : LIGHT_GRAY}
@@ -29,8 +29,6 @@ const TextInputComponent = (props) => {
         onBlur={handleBlur}
         onChangeText={(text) => props.handleTextInput(text)}
         style={styles.textInput}
-        value={props.value}
-        enabled={props.enabled}
       />
     </View>
   );
@@ -52,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TextInputComponent;
+export default NumberInputComponent;

@@ -20,10 +20,20 @@ const EmptyFillTabNavigation = (props) => {
       }}
     >
       <Tab.Screen name="fill" options={{ title: "Fill" }}>
-        {() => <FillScreen name={props.route.params.name} />}
+        {() => (
+          <FillScreen
+            name={props.route.params.name}
+            navigation={props.navigation}
+          />
+        )}
       </Tab.Screen>
       <Tab.Screen name="empty" options={{ title: "Empty" }}>
-        {() => <EmptyScreen name={props.route.params.name} />}
+        {() => (
+          <EmptyScreen
+            name={props.route.params.name}
+            navigation={props.navigation}
+          />
+        )}
       </Tab.Screen>
     </Tab.Navigator>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import StockComponent from "./StockComponent";
-import IssueReceiveComponent from "./IssueReceiveComponent";
-import issuedFilledCylinderData from "../../data/issued-filled-cylinder";
+import StockComponent from "../godown-admin/StockComponent";
+import IssueReceiveComponent from "../godown-admin/IssueReceiveComponent";
+import issuedFilledCylinderData from "../../../data/issued-filled-cylinder";
 
 const GodownComponent = (props) => {
   return (

@@ -1,16 +1,16 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
-import FormattedTable from "../blocks/FormattedTable";
+import FormattedTable from "../../blocks/FormattedTable";
 import { Button } from "react-native-material-ui";
 
-import stockData from "../../data/stock-data";
+import stockData from "../../../data/stock-data";
 
 const getImage = (imageId) => {
   switch (imageId) {
     case 0:
-      return require("../../assets/images/filled.png");
+      return require("../../../assets/images/filled.png");
     default:
-      return require("../../assets/images/empty.png");
+      return require("../../../assets/images/empty.png");
   }
 };
 

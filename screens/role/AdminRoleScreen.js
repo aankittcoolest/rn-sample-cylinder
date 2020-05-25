@@ -4,7 +4,7 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import DateComponent from "../../components/blocks/DateComponent.js";
 import AdminToolbar from "../../components/logical/toolbars/AdminToolbar";
 
-import SummaryComponent from "../../components/logical/SummaryComponent";
+import SummaryComponent from "../../components/logical/admin/SummaryComponent";
 
 const AdminRoleScreen = (props) => {
   return (

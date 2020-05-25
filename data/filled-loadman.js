@@ -67,7 +67,7 @@ filledLoadmanDataReference.data.details.forEach((x) =>
   data.push(Object.values(x))
 );
 
-data.push(filledLoadmanDataReference.data.details.sum);
+data.push(Object.values(filledLoadmanDataReference.data.sum));
 
 const filledLoadmanData = {
   headers: filledLoadmanDataReference.headers,

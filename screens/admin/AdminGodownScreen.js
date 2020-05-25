@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import AdminToolbar from "../../components/logical/toolbars/AdminToolbar";
 import DateComponent from "../../components/blocks/DateComponent.js";
-import GodownComponent from "../../components/logical/GodownComponent";
+import GodownComponent from "../../components/logical/godown-admin/GodownComponent";
 
 const AdminGodownScreen = (props) => {
   return (
