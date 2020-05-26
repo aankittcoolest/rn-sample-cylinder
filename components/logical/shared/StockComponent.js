@@ -3,7 +3,8 @@ import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
 import FormattedTable from "../../blocks/FormattedTable";
 import { Button } from "react-native-material-ui";
 
-import stockData from "../../../data/stock-data";
+import adminStockData from "../../../data/admin-stock-data";
+import loadmanStockData from "../../../data/loadman-stock-data";
 
 const getImage = (imageId) => {
   switch (imageId) {
@@ -30,6 +31,8 @@ const generateButtonForIssue = (imageId, issuedCount) => {
 
 const StockComponent = (props) => {
   let data = [];
+  
+  let stockData = adminStockData
 
   stockData.data.forEach((item) => {
     data.push([

@@ -6,7 +6,7 @@ import Constants from "../../constants/Constants";
 const BLUE = "#428AF8";
 const LIGHT_GRAY = "#D3D3D3";
 
-const TextInputComponent = (props) => {
+const TextViewComponent = (props) => {
   const [isFocussed, setIsFocussed] = useState(false);
 
   const handleFocus = (event) => {
@@ -20,17 +20,14 @@ const TextInputComponent = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textLabel}>{props.label}</Text>
-      <TextInput
-        keyboardType={props.keyboardType}
-        placeholder={props.placeholder}
-        selectionColor={BLUE}
+      <Text
         underlineColorAndroid={isFocussed ? BLUE : LIGHT_GRAY}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        onChangeText={(text) => props.handleTextInput(props.element, text)}
-        style={styles.textInput}
-        defaultValue={props.value}
-      />
+        style={styles.textView}
+      >
+        {props.value}
+      </Text>
     </View>
   );
 };
@@ -38,17 +35,20 @@ const TextInputComponent = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingVertical: 20,
   },
   textLabel: {
     fontSize: 18,
     color: Constants.itemLabelsColor,
+    paddingBottom: 10,
   },
-  textInput: {
+  textView: {
     fontSize: 20,
-    height: 60,
+    height: 40,
     paddingLeft: 6,
     color: Constants.secondaryColor,
+    borderBottomWidth: 0.5,
   },
 });
 
-export default TextInputComponent;
+export default TextViewComponent;

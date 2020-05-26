@@ -28,11 +28,7 @@ const SharePdf = () => {
       console.error(e);
     }
   };
-  return (
-    <View style={{ marginTop: 50 }}>
-      <Button onPress={onShare} title="Generate and print Challan" />
-    </View>
-  );
+  return <Button onPress={onShare} title="Share Challan" />;
 };
 
 export default SharePdf;

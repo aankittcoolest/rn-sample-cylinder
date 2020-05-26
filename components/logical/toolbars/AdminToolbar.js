@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { Toolbar } from "react-native-material-ui";
 
 const AdminToolbarComponent = (props) => {

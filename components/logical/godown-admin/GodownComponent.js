@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import StockComponent from "../godown-admin/StockComponent";
+import StockComponent from "../shared/StockComponent";
 import IssueReceiveComponent from "../godown-admin/IssueReceiveComponent";
 import issuedFilledCylinderData from "../../../data/issued-filled-cylinder";
 

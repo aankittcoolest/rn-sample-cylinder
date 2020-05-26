@@ -7,6 +7,10 @@ import challanData from "../../data/challan-data";
 import HeaderComponent from "../../components/blocks/HeaderComponent";
 import FormattedTable from "../../components/blocks/FormattedTable";
 import TextInputComponent from "../../components/blocks/TextInputComponent";
+import TextViewComponent from "../../components/blocks/TextViewComponent";
+import LabelComponent from "../../components/blocks/LabelComponent";
+
+import Constants from "../../constants/Constants";
 
 import SharePdf from "../pdf/SharePdf";
 
@@ -30,30 +34,25 @@ const IssueChallanScreen = (props) => {
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <HeaderComponent name="Issue Challan" />
         <View style={styles.container}>
-          <TextInputComponent
+          <LabelComponent
+            labelColor={Constants.labels.warning}
+            labelName="Pending"
+          />
+          <TextViewComponent
             label="Driver Name"
             handleTextInput={handleDriverName}
             value="sample name"
             enabled="false"
           />
-          <TextInputComponent
+          <TextViewComponent
             label="Mobile Number"
             handleTextInput={handleMobileNumber}
             keyboardType="numeric"
             value="98989898"
           />
-          <TextInputComponent
-            label="Challan No."
-            enabled="false"
-            value="123456"
-          />
-          <TextInputComponent
-            label="Date"
-            enabled="false"
-            value="Thu 23 March 2020 12:00 PM"
-          />
-          <TextInputComponent label="Type" enabled="false" value="Site" />
-          <TextInputComponent
+          <TextViewComponent label="Challan No." value="123456" />
+          <TextViewComponent label="Type" value="Site" />
+          <TextViewComponent
             label="Name"
             enabled="false"
             value="Ramesh Kumar"
@@ -61,6 +60,7 @@ const IssueChallanScreen = (props) => {
           <FormattedTable
             headers={challanData.headers}
             data={challanData.data}
+            tableName="Items list"
           />
           <Button
             title="Generate and View Challan"
@@ -72,6 +72,10 @@ const IssueChallanScreen = (props) => {
     </KeyboardAwareScrollView>
   );
 };
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 20,
+  },
+});
 
 export default IssueChallanScreen;

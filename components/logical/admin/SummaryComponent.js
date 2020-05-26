@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-
-import summaryData from "../../../data/summary-data";
 import FormattedTable from "../../blocks/FormattedTable";
 
-const SummaryComponent = (props) => {
-  let data = summaryData.data;
+import { useSelector } from "react-redux";
 
-  data.forEach((x) => {
-    let name = x[0];
-    x[0] = (
+const SummaryComponent = (props) => {
+  let data = useSelector((state) => state.summary);
+
+  data.data = data.data.map((item) => {
+    let name = item.site;
+    item.site = (
       <Text
         onPress={() => props.navigation.push("Admin Godown View", { name })}
         style={styles.item}
       >
-        {x[0]}
+        {item.site}
       </Text>
     );
+    item = Object.values(item);
+    return item;
   });
 
   return (
     <View>
-      <FormattedTable headers={summaryData.headers} data={summaryData.data} />
+      <FormattedTable headers={data.headers} data={data.data} />
     </View>
   );
 };

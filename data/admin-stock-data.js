@@ -1,4 +1,4 @@
-const stockData = {
+const adminStockData = {
   headers: ["ITEM", "OPEN", "REC", "ISSUE", "CLOSE"],
   data: [
     {
@@ -68,4 +68,4 @@ const stockData = {
   ],
 };
 
-export default stockData;
+export default adminStockData;

@@ -1,4 +1,4 @@
-const summaryDataReference = {
+export const summaryDataReference = {
   headers: ["Site", "Count", "Amount", "Hawker Charges", "Total"],
 
   data: [

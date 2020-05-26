@@ -9,7 +9,7 @@ import SummaryComponent from "../../components/logical/admin/SummaryComponent";
 const AdminRoleScreen = (props) => {
   return (
     <View style={styles.container}>
-      <AdminToolbar />
+      <AdminToolbar {...props} />
       <DateComponent />
       <SummaryComponent navigation={props.navigation} />
     </View>

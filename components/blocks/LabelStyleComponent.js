@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
 
-export const LabelStyle = (labelColor) =>
+export const LabelStyle = (labelColor, fontSize) =>
   StyleSheet.create({
     headingLabel: {
-      marginRight: 5,
       color: "#fff",
       backgroundColor: labelColor,
-      paddingVertical: 4,
-      paddingHorizontal: 8,
-      fontSize: 14,
-      borderRadius: 5,
+      paddingHorizontal: 13,
+      paddingVertical: 3,
+      fontSize: fontSize,
+      borderRadius: 10,
+      fontFamily: "open-sans",
     },
   });

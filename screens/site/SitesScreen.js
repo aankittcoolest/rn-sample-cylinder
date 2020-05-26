@@ -1,34 +1,78 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, FlatList, SafeAreaView } from "react-native";
 
 import CardComponent from "../../components/blocks/CardComponent";
 import { ActionButton } from "react-native-material-ui";
 
 import Constants from "../../constants/Constants";
-import { ScrollView } from "react-native-gesture-handler";
 
-const SitesScreen = (props) => {
-  let cards = [];
-  let data = [
-    {
+import { useSelector } from "react-redux";
+
+const mapData = (data) => {
+  let formattedData = data.map((item) => {
+    let keys = Object.keys(item.data);
+    let items = [];
+    for (let i = 0; i < keys.length; i++) {
+      items.push({
+        key: item.data[keys[i]].key,
+        value: item.data[keys[i]].value,
+      });
+    }
+    return {
+      id: item.id,
       metadata: {
-        id: 1,
-        title: "Godown Manager",
-        label: "Godown manager",
-        labelColor: Constants.labels.primary,
+        title: item.metadata.title,
+        label: item.metadata.label,
+        labelColor:
+          item.site_type_id === 1
+            ? Constants.labels.primary
+            : Constants.labels.success,
       },
-      items: [
-        { key: "Godown Incharge", value: "Neeru" },
-        { key: "Mobile Number", value: "123456789" },
-      ],
-    },
-  ];
+      items,
+    };
+  });
+  return formattedData;
+};
+const SitesScreen = (props) => {
+  let data = useSelector((state) => state.sites.sites);
+  const [sites, setSites] = useState(mapData(data));
 
-  const handleAdd = () => {
-    props.navigation.push("Add Site");
+  const handleOnNavigateBack = (foo) => {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].id === foo.id) {
+        data[i] = foo;
+      }
+    }
+    setSites(mapData(data));
   };
 
-  const handleEdit = (itemId) => {
+  const handleNewSiteAdd = (site) => {
+    let data = [];
+    data.push(site);
+    data = mapData(data);
+    let tmpData = sites;
+    tmpData.push(data[0]);
+    setSites(tmpData);
+  };
+
+  const handleAdd = () => {
+    props.navigation.push("Add Site", {
+      id: 3,
+      onNavigateBack: (site) => handleNewSiteAdd(site),
+    });
+  };
+
+  const handleEdit = (itemId, siteTypeId) => {
+    if (siteTypeId === "1") {
+      props.navigation.push("Edit Godown Site", {
+        id: itemId,
+        onNavigateBack: handleOnNavigateBack,
+      });
+    }
+    props.navigation.push("Edit Vehicle Site", {
+      id: itemId,
+      onNavigateBack: (id) => handleOnNavigateBack(id),
+    });
     //TODO handle itemID here
   };
 
@@ -36,35 +80,30 @@ const SitesScreen = (props) => {
     //TODO handle delete item
   };
 
-  data.forEach((x) =>
-    cards.push(
-      <CardComponent
-        metadata={x.metadata}
-        items={x.items}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-      />
-    )
-  );
-
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <View>{cards}</View>
-        <View>{cards}</View>
-        <View>{cards}</View>
-        <View>{cards}</View>
-        <View>{cards}</View>
-        <View>{cards}</View>
-      </ScrollView>
-      <ActionButton onPress={handleAdd} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={sites}
+        renderItem={({ item }) => (
+          <CardComponent
+            metadata={item.metadata}
+            id={item.id}
+            items={item.items}
+            handleEdit={() => handleEdit(item.id, item.site_type_id)}
+            handleDelete={handleDelete}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      ></FlatList>
+      <ActionButton {...props} onPress={handleAdd} />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 50,
   },
 });
 

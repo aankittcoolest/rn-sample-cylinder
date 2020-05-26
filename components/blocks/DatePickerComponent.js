@@ -23,7 +23,7 @@ const DatePickerComponent = (props) => {
     const currentDate = selectedDate || date;
     setDate(currentDate);
     setShow(false);
-    props.handleDate(currentDate);
+    props.handleDate(props.element, currentDate);
   };
 
   const showDatepicker = () => {

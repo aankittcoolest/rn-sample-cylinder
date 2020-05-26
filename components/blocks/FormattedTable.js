@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { Table, Row, Rows } from "react-native-table-component";
 
 import Constants from "../../constants/Constants";
@@ -7,6 +7,7 @@ import Constants from "../../constants/Constants";
 const FormattedTable = (props) => {
   return (
     <View style={styles.container}>
+      <Text style={styles.tableName}>{props.tableName}</Text>
       <Table
         borderStyle={{ borderWidth: 1, borderColor: Constants.primaryColor }}
       >
@@ -22,8 +23,12 @@ const FormattedTable = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 10,
+  container: {},
+
+  tableName: {
+    fontSize: 18,
+    color: Constants.itemLabelsColor,
+    paddingBottom: 10,
   },
   HeadStyle: {
     height: 50,
@@ -32,12 +37,13 @@ const styles = StyleSheet.create({
   },
   TableText: {
     margin: 10,
-    fontSize: 15,
+    fontSize: 18,
+    color: Constants.secondaryColor,
   },
   TableHeaderText: {
     margin: 10,
     color: "white",
-    fontSize: 15,
+    fontSize: 18,
   },
 });
 

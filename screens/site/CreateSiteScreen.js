@@ -21,17 +21,9 @@ const CreateSiteScreen = (props) => {
     setSelectedValue(value);
   };
 
-  const handleSave = () => {
-    console.log("handling save");
-  };
-
-  const handleCancel = () => {
-    console.log("handling cancle");
-  };
-
   let renderComponent =
     selectedValue === "1" ? (
-      <CreateVehicleSiteScreen />
+      <CreateVehicleSiteScreen {...props} />
     ) : (
       <CreateGodownSiteScreen />
     );
