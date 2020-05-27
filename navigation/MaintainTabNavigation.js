@@ -26,7 +26,7 @@ const MaintainTabNavigation = (props) => {
         component={SitesScreen}
       />
       <Tab.Screen name="users" options={{ title: "Users" }}>
-        {() => <UsersScreen />}
+        {() => <UsersScreen {...props} />}
       </Tab.Screen>
       <Tab.Screen name="items" options={{ title: "Items" }}>
         {() => <ItemsScreen />}

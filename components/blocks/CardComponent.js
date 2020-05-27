@@ -6,7 +6,6 @@ import { LabelStyle } from "./LabelStyleComponent";
 
 const CardComponent = (props) => {
   let items = [];
-  console.log(props.items);
 
   props.items.forEach((x) =>
     items.push(

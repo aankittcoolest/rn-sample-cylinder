@@ -3,63 +3,42 @@ import { Keyboard, StyleSheet } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import TextInputComponent from "../../components/blocks/TextInputComponent";
+import TextViewComponent from "../../components/blocks/TextViewComponent";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import SaveCancelComponent from "../../components/blocks/SaveCancelComponent";
 
 import DatePickerComponent from "../../components/blocks/DatePickerComponent";
+import { useSelector, useDispatch } from "react-redux";
 
-import { useDispatch } from "react-redux";
-import * as siteAction from "../../store/actions/siteAction";
+import * as siteActions from "../../store/actions/siteAction";
 
-const CreateGodownSiteScreen = (props) => {
-  let dispatch = useDispatch();
-  let dummySite = {
-    id: Math.floor(Math.random() * 100),
-    site_type_id: 1,
-    metadata: {
-      title: "Godown Manager",
-      label: "godown",
-    },
-    data: {
-      godown_incharge: { key: "Godown Incharge", value: "" },
-      mobile: { key: "mobile", value: "" },
-      address: { key: "Address", value: "" },
-      fire_cylinder_due_date: {
-        key: "Fire Cylinder Due Date",
-        value: "",
-      },
-      weighing_cylinder_due_date: {
-        key: "Weighing Cylinder Due Date",
-        value: "",
-      },
-      explosive_license_due_date: {
-        key: "Explosive License Due Date",
-        value: "",
-      },
-    },
-  };
+const EditGodownSiteScreen = (props) => {
+  const dispatch = useDispatch();
+  const site = useSelector(
+    (state) =>
+      state.sites.sites.filter((x) => x.id === props.route.params.id)[0]
+  );
 
-  const [site, setSite] = useState(dummySite);
-
-  const handleSave = () => {
-    dispatch(siteAction.addSite(site));
-    props.route.params.onNavigateBack(site);
-    props.navigation.goBack();
-  };
+  const [siteState, setSiteState] = useState(site);
 
   const handleCancel = () => {
+    props.navigation.navigate();
+  };
+
+  const handleSave = () => {
+    dispatch(siteActions.editSite(siteState));
+    props.route.params.onNavigateBack(siteState);
     props.navigation.goBack();
   };
 
   const handleInput = (element, text) => {
     if (text instanceof Date) {
-      site.data[element].value = text.toDateString();
+      siteState.data[element].value = text.toDateString();
     } else {
-      site.data[element].value = text;
+      siteState.data[element].value = text;
     }
-    setSite(site);
+    setSiteState(siteState);
   };
-
   return (
     <KeyboardAwareScrollView
       resetScrollToCoords={{ x: 0, y: 0 }}
@@ -70,16 +49,19 @@ const CreateGodownSiteScreen = (props) => {
         <TextInputComponent
           label="Godown Incharge"
           handleTextInput={handleInput}
+          value={site.data.godown_incharge.value}
           element="godown_incharge"
         />
         <TextInputComponent
           label="Mobile"
           handleTextInput={handleInput}
+          value={site.data.mobile.value}
           element="mobile"
         />
         <TextInputComponent
           label="Address"
           handleTextInput={handleInput}
+          value={site.data.address.value}
           element="address"
         />
 
@@ -91,13 +73,13 @@ const CreateGodownSiteScreen = (props) => {
         />
         <DatePickerComponent
           handleDate={handleInput}
-          date={new Date()}
+          date={new Date(site.data.weighing_cylinder_due_date.value)}
           label="Weighing Cylinder Due Date"
           element="weighing_cylinder_due_date"
         />
         <DatePickerComponent
           handleDate={handleInput}
-          date={new Date()}
+          date={new Date(site.data.explosive_license_due_date.value)}
           label="Explosive License Due Date"
           element="explosive_license_due_date"
         />
@@ -116,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateGodownSiteScreen;
+export default EditGodownSiteScreen;

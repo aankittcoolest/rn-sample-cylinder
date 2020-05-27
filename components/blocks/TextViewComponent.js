@@ -20,12 +20,7 @@ const TextViewComponent = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textLabel}>{props.label}</Text>
-      <Text
-        underlineColorAndroid={isFocussed ? BLUE : LIGHT_GRAY}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        style={styles.textView}
-      >
+      <Text onFocus={handleFocus} onBlur={handleBlur} style={styles.textView}>
         {props.value}
       </Text>
     </View>

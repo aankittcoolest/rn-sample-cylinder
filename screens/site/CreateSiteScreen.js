@@ -25,7 +25,7 @@ const CreateSiteScreen = (props) => {
     selectedValue === "1" ? (
       <CreateVehicleSiteScreen {...props} />
     ) : (
-      <CreateGodownSiteScreen />
+      <CreateGodownSiteScreen {...props}  />
     );
   return (
     <KeyboardAwareScrollView

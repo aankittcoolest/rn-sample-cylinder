@@ -15,6 +15,11 @@ import SitesScreen from "../screens/site/SitesScreen";
 import IssueChallanScreen from "../screens/godown/IssueChallanScreen";
 import ViewPdf from "../screens/pdf/ViewPdfScreen";
 import EditVehicleSiteScreen from "../screens/site/EditVehicleSiteScreen";
+import EditGodownSiteScreen from "../screens/site/EditGodownSiteScreen";
+
+import CreateUserScreen from "../screens/user/CreateUserScreen";
+import EditLoadmanUserScreen from "../screens/user/EditLoadmanUserScreen";
+import EditHawkerUserScreen from "../screens/user/EditHawkerUserScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,10 +29,18 @@ const StackNavigation = (props) => {
       <Stack.Screen name="Login" component={RoleScreen} />
       <Stack.Screen name="Admin Dashboard" component={AdminRoleScreen} />
       <Stack.Screen name="Admin Godown View" component={AdminGodownScreen} />
+      <Stack.Screen name="Edit Godown Site" component={EditGodownSiteScreen} />
       <Stack.Screen
         name="Edit Vehicle Site"
         component={EditVehicleSiteScreen}
       />
+
+      <Stack.Screen name="Add User" component={CreateUserScreen} />
+      <Stack.Screen
+        name="Edit Loadman User"
+        component={EditLoadmanUserScreen}
+      />
+      <Stack.Screen name="Edit Hawker User" component={EditHawkerUserScreen} />
       <Stack.Screen
         name="Loadman Dashboard"
         component={LoadmanDashboardScreen}
@@ -36,7 +49,6 @@ const StackNavigation = (props) => {
       <Stack.Screen name="Add Site" component={CreateSiteScreen} />
       <Stack.Screen name="Issue Challan" component={IssueChallanScreen} />
       <Stack.Screen name="View Challan pdf" component={ViewPdf} />
-      <Stack.Screen name="Sites" component={SitesScreen} />
       <Stack.Screen
         name="Details"
         component={EmptyFillTabNavigation}

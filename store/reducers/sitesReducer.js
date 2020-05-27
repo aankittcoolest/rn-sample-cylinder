@@ -1,5 +1,5 @@
 import sites from "../../data/sites";
-import { EDIT_SITE, ADD_SITE } from "../actions/siteAction";
+import { EDIT_SITE, ADD_SITE,DELETE_SITE } from "../actions/siteAction";
 
 const initialState = {
   sites,
@@ -18,6 +18,14 @@ export default (state = initialState, action) => {
         ...state,
         sites: [...state.sites, action.site],
       };
+    }
+    case DELETE_SITE: {
+      // console.log(state.sites.filter(site => site.id != action.siteId))
+      return {
+        ...state,
+      sites: state.sites.filter(site => site.id != action.siteId)
+      }
+      
     }
   }
   return state;

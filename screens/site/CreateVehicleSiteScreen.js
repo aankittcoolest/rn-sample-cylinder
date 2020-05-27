@@ -14,7 +14,7 @@ import * as siteAction from "../../store/actions/siteAction";
 const CreateVehicleSiteScreen = (props) => {
   let dispatch = useDispatch();
   let dummySite = {
-    id: "3",
+    id: Math.floor(Math.random() * 100),
     site_type_id: 2,
     metadata: {
       title: "Site Owner",

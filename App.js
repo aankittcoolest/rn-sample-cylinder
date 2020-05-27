@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
 import StackNavigation from "./navigation/StackNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeContext, getTheme } from "react-native-material-ui";
@@ -9,14 +8,18 @@ import { AppLoading } from "expo";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
-import userReducer from "./store/reducers/userReducer";
 import summaryReducer from "./store/reducers/summaryReducer";
 import sitesReducer from "./store/reducers/sitesReducer";
+import usersReducer from "./store/reducers/usersReducer";
+import vehiclesReducer from "./store/reducers/vehiclesReducer";
+import loadmansReducer from "./store/reducers/loadmansReducer";
 
 const rootReducer = combineReducers({
-  user: userReducer,
   summary: summaryReducer,
   sites: sitesReducer,
+  users: usersReducer,
+  vehicles: vehiclesReducer,
+  loadmans: loadmansReducer,
 });
 
 const store = createStore(
@@ -25,6 +28,7 @@ const store = createStore(
 );
 
 import defaultTheme from "./themes/defaultTheme";
+import loadmans from "./data/loadman-list";
 
 const FetchFonts = () => {
   return Font.loadAsync({
